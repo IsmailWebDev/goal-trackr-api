@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -14,4 +14,29 @@ model User {
   id       Int    @id @default(autoincrement())
   email    String @unique
   password String
+}
+
+model Player {
+  id    Int    @id @default(autoincrement())
+  name  String
+  goals Goal[]
+}
+
+model Goal {
+  id           Int      @id @default(autoincrement())
+  playerId     Int
+  goal         Int
+  season       String
+  competition  String
+  date         DateTime
+  venue        String
+  team         String
+  logo         String
+  opponent     String
+  position     String?
+  minute       String
+  type_of_goal String?
+  goal_assist  String?
+  winning_goal Boolean
+  player       Player   @relation(fields: [playerId], references: [id])
 }
