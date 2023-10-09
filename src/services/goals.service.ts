@@ -23,7 +23,7 @@ export class GoalService {
       orderBy: { goal: 'asc' },
     });
     let nextCursor: typeof cursor | undefined = undefined;
-    if (playerGoals.length >= limit) {
+    if (playerGoals.length >= (limit || 100)) {
       const lastGoalInResult = playerGoals.at(-1);
       nextCursor = lastGoalInResult?.id;
     }
