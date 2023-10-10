@@ -16,14 +16,14 @@ export class GoalService {
     cursor?: number | null;
   }): Promise<{ playerGoals: Goal[]; nextCursor: number }> {
     const playerGoals: Goal[] = await this.goal.findMany({
-      take: limit || 100,
+      take: limit || undefined,
       skip: cursor ? 1 : undefined,
       cursor: cursor ? { id: cursor } : undefined,
       where: { playerId },
       orderBy: { goal: 'asc' },
     });
     let nextCursor: typeof cursor | undefined = undefined;
-    if (playerGoals.length >= (limit || 100)) {
+    if (playerGoals.length >= (limit || undefined)) {
       const lastGoalInResult = playerGoals.at(-1);
       nextCursor = lastGoalInResult?.id;
     }
