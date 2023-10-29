@@ -12,22 +12,24 @@ Before you begin, ensure you have met the following requirements:
 - [npm](https://www.npmjs.com/) (Node Package Manager) installed.
 
 ### Installing
-
 1. Clone this repository to your local machine:
 
-```
-git clone https://github.com/IsmailWebDev/goal-trackr-api.git
-```
+   ```
+   git clone https://github.com/IsmailWebDev/goal-trackr-api.git
+   ```
+
 2. Navigate to the project directory:
-```
-cd goal-trackr-api
-```
+
+   ```
+   cd goal-trackr-api
+   ```
 
 3. Install the project dependencies:
 
-```
-npm install
-```
+   ```
+   npm install
+   ```
+
 
 ## Configuration
 
